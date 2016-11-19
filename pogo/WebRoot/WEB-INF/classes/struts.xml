@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  
+  
+  
+    <package name="actions" extends="struts-default">
+        <action name="hand" class="u" >
+        
+        <result name="success">
+        /success.jsp
+        </result>
+         <result name="error">
+           /error.jsp
+        </result>
+        <result name="input">
+        /register.jsp
+        </result>
+            </action>
+       
+       
+       
+       
+        <action name="log" class="log" >
+        
+        <result name="success">
+        /success.jsp
+        </result>
+         <result name="error">
+           /error.jsp
+        </result>
+        <result name="input">
+        /register.jsp
+        </result>
+            </action>
+       
+       
+       <action name="bi" class="bto" >
+        
+        <result name="success">
+        user/success.jsp
+        </result>
+         <result name="error">
+           /error.jsp
+        </result>
+        <result name="input">
+        /register.jsp
+        </result>
+            </action>
+       
+       
+        <action name="hio" class="iu" >
+        
+        <result name="success">
+        /user/editbloginfo.jsp
+        </result>
+        
+       </action>
+       
+   
+       
+        <action name="addArticle" class="atiac" >
+        
+        <result name="success">
+        /user/success.jsp
+        </result>
+        
+       <result name="error">
+           /error.jsp
+        </result>
+     </action>  
+       
+       <action name="addArticle2" class="atiac" method="add">
+        
+       
+        <result name="list">
+        /user/showUserAllArticle.jsp
+        </result>
+     
+       </action>
+         
+           
+       <action name="allshow" class="atiac" method="all">
+        
+       
+        <result name="all">
+        /showUserAllArticle.jsp
+        </result>
+     
+       </action>
+       <action name="show" class="shoe" >
+        <result name="success">
+        /user/showArticle.jsp
+        </result>
+       </action>
+       
+       
+         </package>   
+         
+         
+  </struts>          
