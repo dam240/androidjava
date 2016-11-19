@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+<package name="modei2" namespace="/"  extends="json-default">
+
+<action name="Tinsert" class="Twe" method="insert">
+
+</action>
+
+<action name="mytween" class="Twe" method="mytween">
+<result type="json"></result>
+</action>
+
+
+<action name="ios" class="Twe" method="setlist">
+<result type="json"></result>
+</action>
+
+
+
+<action name="tindex" class="Twe" method="index">
+<result type="json"></result>
+</action>
+
+
+<action name="tcount" class="Twe" method="count">
+<result type="json"></result>
+</action>
+
+
+<action name="tcount2" class="Twe" method="count2">
+<result type="json"></result>
+</action>
+
+</package>
+
+</struts>

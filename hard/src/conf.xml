@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+<typeAliases>  
+    <typeAlias alias="user" type="com.cd.user.po.user" />  
+      <typeAlias alias="care" type="com.cd.user.po.care1" />  
+        <typeAlias alias="tool" type="com.cd.user.po.tool" />
+         <typeAlias alias="carelike" type="com.cd.user.po.tool2" />
+              <typeAlias alias="chat" type="com.cd.user.po.chat" />
+          <typeAlias alias="friend" type="com.cd.user.po.friend" />    
+                <typeAlias alias="tween" type="com.cd.user.po.tween" />   
+  <typeAlias alias="admin" type="com.cd.admin.po.admin" />  
+  </typeAliases>  
+
+
+
+    <mappers>
+     <mapper resource="com/cd/user/dao/userMapper.xml" /> 
+    <mapper resource="com/cd/admin/dao/adminL.xml" /> 
+   <!--   <mapper class="com.cd.dao.use" /> -->
+        </mappers>
+
+
+
+
+</configuration>

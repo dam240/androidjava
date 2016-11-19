@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cd.admin.dao.adminL">
+
+<cache
+eviction="FIFO"
+flushInterval="60000"
+size="512"
+readOnly="true"/>
+
+
+
+<select id="load" parameterType="String" useCache="true" fetchSize="1" resultType="admin">
+select * from Uadmin where id=#{id}
+</select>
+
+<update id="upadmin"  parameterType="admin">
+
+update Uadmin set name=#{name},card=#{card},photo=#{photo}  where id=#{id}
+</update>
+
+<select id="getlist" resultMap="use" useCache="true">
+select * from user;
+ </select>
+
+<select id="getconut"   resultType="int">
+select count(*) from user;
+</select>
+
+
+
+<delete id="Adelte"  parameterType="String">
+delete from user where user_id=#{id}
+</delete>
+
+
+
+<resultMap type="user" id="use">
+<id property="user_id"  column="user_id"/>
+<result property="password"  column="password"/>
+<result  property="photo" column="photo"/>
+<result property="user_name" column="user_name"/>
+<result  property="card"  column="card"/>
+<result  property="age"  column="age"/>
+</resultMap>
+
+</mapper>

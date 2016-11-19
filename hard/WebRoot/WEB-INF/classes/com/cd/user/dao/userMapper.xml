@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cd.user.dao.userMapper">
+
+<insert id="save" parameterType="user">
+insert into user(user_id,password,user_name,photo,card,age)  values(#{user_id},#{password},#{user_name},#{photo},#{card},#{age})
+</insert>
+
+
+<select id="userload" resultType="user"  parameterType="String">
+
+select  *  from user where user_id=#{id}
+</select>
+
+<update id="upuser"  parameterType="user">
+update user set user_name=#{user_name},card=#{card},photo=#{photo} where user_id=#{user_id}
+</update>
+
+
+
+<select id="countcare" resultType="int"  parameterType="String">
+
+select  count(*)  from care where my=#{id}
+</select>
+
+
+<select id="carecount" resultType="int"  parameterType="String">
+
+select  count(*)  from care where you=#{id}
+</select>
+
+
+
+<select id="mycare" resultMap="use" useCache="true" parameterType="tool">
+select user_id,user_name,card,photo,age from care,user where  my=#{id} and care.you=user.user_id  limit #{index},#{size} 
+ </select>
+
+
+<select id="caremy" resultMap="use" useCache="true" parameterType="tool">
+select user_id,user_name,card,photo,age from care,user where  you=#{id} and care.my=user.user_id  limit #{index},#{size} 
+ </select>
+<select id="selectlike" resultMap="use"  useCache="true"  parameterType="carelike">
+select * from user where user_id like #{id} or user_name like#{name} limit #{index},#{size} 
+</select>
+
+<select id="usercount" resultType="int"  useCache="true"  parameterType="carelike">
+select count(*) from user where user_id like #{id} or user_name like#{name} 
+</select>
+<select id="myand" resultType="int" parameterType="carelike">
+select count(*) from care where my=#{id} and you=#{name} 
+</select>
+
+<insert id="insertmyg" parameterType="carelike">
+insert into care(my,you) values(#{id},#{name})
+</insert>
+<delete id="deletecare" parameterType="carelike">
+delete from care where  my=#{id} and you=#{name} 
+
+</delete>
+
+<insert id="insertfriend"  parameterType="friend">
+insert into myyou(my,you,tiem,acctp) values(#{my},#{you},#{date},#{acctp})
+</insert>
+
+<select id="seeF" resultMap="use" parameterType="String">
+select user_id,user_name,card,photo,age from myyou,user where you=#{id} and user_id=my and acctp=1
+</select>
+
+<update id="upfriend"  parameterType="friend">
+update myyou set acctp=#{acctp} where you=#{my} and my=#{you}
+</update>
+<delete id="deleteF" parameterType="friend">
+delete from myyou where my=#{my} and you=#{you}
+</delete>
+
+
+
+<select id="seeMYF" resultType="user" parameterType="friend">
+select user_id,user_name,card,photo,age from myyou,user where my=#{my} and user_id=#{you} and acctp=2
+</select>
+
+
+
+<select id="failF" resultMap="use" parameterType="String">
+select user_id,user_name,card,photo,age from myyou,user where my=#{id} and user_id=you and acctp=3
+</select>
+
+
+
+
+<select id="seelistF" resultMap="use" parameterType="String">
+select user_id,user_name,card,photo,age from myyou,user where my=#{id}  and user_id=you  and acctp=2
+</select>
+<resultMap type="care" id="car">
+<id property="id"  column="id"/>
+<result property="my"  column="my"/>
+<result  property="you" column="you"/>
+
+</resultMap>
+
+
+<resultMap type="user" id="use">
+<id property="user_id"  column="user_id"/>
+<result property="password"  column="password"/>
+<result  property="photo" column="photo"/>
+<result property="user_name" column="user_name"/>
+<result  property="card"  column="card"/>
+<result  property="age"  column="age"/>
+</resultMap>
+
+</mapper>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.multipart.maxSize" value="10000000" />
+    
+
+	<constant value="UTF-8" name="struts.i18n.encoding"/>
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index"  class="user" method="index"></action>
+        
+        
+        <action name="login"  class="user" method="load"></action>
+        
+        <action name="Alogin"  class="admin" method="login"></action>
+          <action name="Aindex"  class="admin" >
+          <result name="success">
+          /admin/index.jsp
+          </result>
+          <result name="login">
+          /admin/logo.html
+          </result>
+          
+          </action>
+  
+          <action name="tou"  class="admin" >
+          <result name="success">
+          /admin/go.jsp
+          </result>
+          <result name="login">
+          /admin/logo.html
+          </result>
+          
+          </action>
+        
+        <action name="Adate"  class="AIDUS">
+            <result name="success" type="chain">Aindex
+</result>
+            <result name="login"> /admin/logo.html</result>
+            <!-- 定义文件上传拦截器 -->
+            <interceptor-ref name="fileUpload">
+                <!-- 设置文件上传大小 -->
+                <param name="maximumSize">409600</param>
+                <!-- 设置文件上传类型 
+                <param name="allowedTypes">
+                    application/vnd.ms-powerpoint
+                </param>
+                -->
+            </interceptor-ref>
+            <!-- 自定义了拦截器后必手动定义默认的拦截器，否则默认的拦截器不会被执行 -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+     
+     
+     
+     
+     
+      <action name="list"  class="AIDUS" method="getlist">
+     <result name="success">
+     /admin/list.jsp
+     </result>
+       <result name="login">
+     /admin/logo.html
+     </result>
+     
+     
+     </action>
+        
+        
+        
+        
+           <action name="Adetele"  class="AIDUS" method="Adetele">
+     <result name="success" type="chain">
+list
+     </result>
+       <result name="login">
+     /admin/logo.html
+     </result>
+     
+     
+     </action>
+        
+    </package>
+
+ 
+<include file="modex.xml"></include>
+
+<include file="modex2.xml"></include>
+   
+
+    <!-- Add packages here -->
+
+</struts>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+<package name="modei" namespace="/"  extends="json-default">
+<action name="modeload" class="usermode" method="load">
+<result type="json"></result>
+</action>
+<action name="Mupdate"  class="usermode" method="useup">
+ <!-- 定义文件上传拦截器 -->
+            <interceptor-ref name="fileUpload">
+                <!-- 设置文件上传大小 -->
+                <param name="maximumSize">102400000</param>
+                <!-- 设置文件上传类型 
+                <param name="allowedTypes">
+                    application/vnd.ms-powerpoint
+                </param>
+                -->
+            </interceptor-ref>
+            <!-- 自定义了拦截器后必手动定义默认的拦截器，否则默认的拦截器不会被执行 -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+</action>
+
+
+
+<action name="mycare" class="usermode" method="U_care">
+<result type="json"></result>
+</action>
+
+
+<action name="caremy" class="usermode" method="care_U">
+<result type="json"></result>
+</action>
+
+<action name="care" class="usermode" method="guang">
+<result type="json"></result>
+</action>
+<action name="selectuser" class="usermode" method="selectuser">
+<result type="json"></result>
+</action>
+<action name="myand" class="usermode" method="myand">
+<result type="json"></result>
+</action>
+
+<action name="insertmyg" class="usermode" method="insertmyg">
+</action>
+<action name="deletecare" class="usermode" method="deletecare">
+</action>
+<action name="insertF" class="friendA" method="insertF">
+</action>
+
+<action name="seeMYF" class="friendA" method="seeMYF">
+<result type="json"></result>
+</action>
+
+<action name="upfriend" class="friendA" method="upfriend">
+</action>
+
+<action name="deleteF" class="friendA" method="deleteF">
+</action>
+
+
+<action name="seelistF" class="friendA" method="seelistF">
+<result type="json"></result>
+</action>
+
+
+<action name="failF" class="friendA" method="failF">
+<result type="json"></result>
+</action>
+
+
+<action name="seeF" class="friendA" method="seeF">
+<result type="json"></result>
+</action>
+
+<action name="jiefriend" class="friendA" method="jiefriend">
+</action>
+
+<action name="chatinsert" class="chatA" method="chatinsert">
+<interceptor-ref name="fileUpload">
+                <!-- 设置文件上传大小 -->
+                <param name="maximumSize">409600</param>
+                <!-- 设置文件上传类型 
+                <param name="allowedTypes">
+                    application/vnd.ms-powerpoint
+                </param>
+                -->
+            </interceptor-ref>
+            <!-- 自定义了拦截器后必手动定义默认的拦截器，否则默认的拦截器不会被执行 -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+</action>
+
+<action name="myinfo" class="chatA" method="myinfo">
+<result type="json"></result>
+</action>
+
+
+<action name="upchat" class="chatA" method="up">
+</action>
+<action name="luser" class="chatA" method="luser">
+<result type="json"></result>
+</action>
+
+</package>
+
+</struts>

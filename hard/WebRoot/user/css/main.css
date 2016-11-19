@@ -1,0 +1,99 @@
+/*公共样式*/
+*{margin: 0;padding: 0;}
+a{text-decoration: none;}
+.dawo,.aa,.aa span,.nav_z a,.xiaowo,.fatui,.ps1,.mad1,.mad2,.span4ge,.span4ge span,.lp,.xw,.zhong_weibu .aa,.gif img,.me a,.p3 .pp3 a{display: inline-block;}
+.fatui3,.fatui,.fatui2,.main_left_top,.main_left_bottom,.dawo,.xxs,.main_zhong,.zhong_weibu .aa,.me a{-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;}
+body{height: 2000px;font-size: 13px;background: #f5f8fa;}
+.main_left_top,.main_left_bottom,.dawo{overflow: hidden;}
+.main,.main_zhong{height:auto !important; height:1000px;min-height:1000px; }
+li{list-style: none;}
+/*公共样式*/
+#toubu{width:100%;height: 47px;border-bottom: 1px solid #d1d3d5;position: fixed;top:0;left: 0;background: #fff;z-index: 1000;}
+#nav{width:1190px;height: 100%;margin:0 auto;position: relative;}
+.nav_l{width:25%;height: 47px;float: left;}
+.nav_z{width:40%;height: 47px;float: left;}
+.nav_r{width:35%;height: 47px;float: right;}
+.aa{overflow:hidden;width:80px;height: 47px;text-decoration: none;font-size: 13px;position: relative;color:#66757f;}
+.aa span{width:29px;height: 29px;position: absolute;}
+.s1{top:12px;left: 12px;}
+.s2{top:14px;right: 12px;}
+.aa:hover .s2{color:#0084B4;}
+.a1 .s1{background: url(../img/zy.jpg)no-repeat;}
+.a2 .s1{background: url(../img/tz.jpg)no-repeat;}
+.a3 .s1{background: url(../img/sx.jpg)no-repeat;}
+.aa p{position: absolute;width:100%;height: 5px;bottom:-5px;left: 0;background: #0084b4;z-index: 2;}
+.aa div{position: absolute;width:100%;height: 5px;bottom:0px;left: 0;background: #0084b4;z-index: 3;filter:alpha(opacity=0);   
+ -moz-opacity:0;   -khtml-opacity: 0;   opacity: 0;   }
+.nav_z a {width: 100px;height: 47px;position: relative;left:284px;}
+.ipt{background:#F5F8FA;padding-left:10px;width:210px;outline:0;height: 30px;-moz-border-radius: 30px; -webkit-border-radius: 30px; border-radius: 30px; position: absolute;top:6px;right:142px;}
+.ipt::-webkit-input-placeholder {color: #8899a6;}
+.ipt:-moz-placeholder {color:#8899a6;}
+.asou{position: absolute;top: 10px;right:150px;}
+.xiaowo{width:33px;height: 33px;position:relative;top:5px;left:282px ;border:1px solid #e2e2e2; 
+ -moz-border-radius: 3px;      /* Gecko browsers */-webkit-border-radius: 3px;   /* Webkit browsers */border-radius:3px; }
+.xiaowo img,.xw img{width: 101%;height: 100%;}
+.fatui{position: absolute;right:8px;top:7px;}
+.fatui,.fatui2{width:80px;height:30px;background: #339cc3;}
+.fatui2,.fatui3{position: absolute;right: 14px;}
+.fatui3{z-index:10000; width:80px;height:30px; background: black;cursor: default;
+filter:alpha(opacity=0.5);  
+      -moz-opacity:0.5;  
+      -khtml-opacity: 0.5;  
+      opacity: 0.5;
+  }
+.ps1{background: url(../img/fatui.jpg)no-repeat;width:30px;height: 30px;margin:1px 0 0 8px;}
+.ps2{position: absolute;top:6px;right:12px;color: #fff;}
+.main{background: #fff;width:1190px; border: 1px solid red;margin:57px auto 0;position: relative;}
+.main_left{width: 290px;height: 699px;position: absolute;}
+.main_left_top{width:290px;height: 195px;border: 1px solid #E2E2E2;position: absolute;}
+.main_left_bottom{height: 490px;width: 290px;border: 1px solid #E2E2E2;position: absolute;bottom: 0;}
+.m_l_t_t{width: 290px;height: 95px;background: #0084b4;}
+.m_l_t_b{width: 290px;height: 100px;position: absolute;bottom: 0px;}
+.dawo{width: 70px;height: 70px;background: #fff;position: absolute;top:65px;left: 8px;z-index: 1000;}
+.dawo img{width:93%;height: 93%;margin: 3px 0 0 3px;}
+.m_l_t_b p{width:85px;height: 45px;position: absolute;left: 88px;top:2px;}
+.mad1{color: #292f33;margin-bottom: 2px;font:bold 18px "微软雅黑"}
+.mad2{color: #66757f;}
+.span4ge{width:100%;height: 45px;position: absolute;bottom: 0px;}
+.span4ge span{width:120px;height: 22px;padding-left: 10px;}
+.span4ge span.ge1{color: #8899a6;}
+.span4ge span.ge2{color: #0084b4;font-size: 15px;}
+.main_left_bottom ul li{width:265px;height: 36px;cursor: pointer;margin: 4px 0 0 15px;}
+.main_left_bottom a{color: #0084b4;}
+.main_left_bottom a:hover{text-decoration: underline;}
+.main_left_bottom p.dp{margin:6px 0 0 15px;color: #66757b;}
+.main_left_bottom p{color: #8899a6;}
+.main_left_bottom p span{font: 16px "微软雅黑"}
+.main_zhong{width: 588px;height: 1000px;position: absolute;top:0;left: 300px;overflow: hidden;}
+.zhong_tb{height:auto !important;;width: 100%;background:#e5f2f7;float: left;}
+.xxs{overflow:hidden;width:495px;height:auto !important height:35px; min-height:35px;margin:10px 0px 10px 67px;outline:none;padding:0 10px 0 10px;border: 1px solid #E2E2E2;background: #fff;}
+.xxs img{width: 100px;height: 80px;}
+.lp{position: absolute;width:30px;height: 20px;background: url(../img/xxj.jpg)no-repeat;right:20px;top:20px;}
+.xw{width:30px;height: 30px;position: absolute;top:13px;left: 30px;}
+.zhong_weibu{margin-bottom: 10px;height: 40px;position: relative;display: none;}
+.zhong_weibu .aa{width:40px;height: 35px;overflow: hidden;border: 1px solid #e5f2f7;}
+.zhong_weibu .aa img{width: 104%;height: 104%;}
+.aa11{margin-left: 67px;}
+.zhong_weibu .aa:hover{border: 1px solid  #8899a6;}
+#up{display: none;}
+.gif{width:336px;height: 200px;position: absolute;border: 1px solid #e2e2e2;background: #fff;left: 118px;display: none;z-index: 100001;}
+.gif img{width:30px;height: 30px;margin: 5px;border: 1px solid #fff;}
+.gif img:hover{border: 1px solid salmon;}
+.gif font{position: absolute;top:-7px;left: 12px;color: #fff;}
+.bul{width:99.6%;height: 1000px;border: 1px solid blue;}
+.me a img{width:100%;height: 100%;}
+.me a{width:45px;height: 45px;margin:10px 0 0 10px;}
+.me{position: relative;height:auto !important height:85px;min-height:85px;width:99.6%;border: 1px solid #E2E2E2;float: left;}
+.p2{width:515px;height:auto !important height:15px;min-height:15px; margin:-27px 0 0 70px; }
+.pp3 a{width:24px;height: 24px;margin:0 0 0 64px;}
+.pp3 a img{width:100%;height: 100%;}
+.pp2{height:auto !important padding:5px;}
+.pp2 img{height: 50%;width: 20%;margin:0px 0 5px 5px;}
+.pp2{float: left;width:100%;}
+.area{border: 0;resize:none;display:block;width:98%;overflow:hidden;height: auto; }
+.pp3{margin:0 0 10px 0px;}
+.pp1{width:520px;height: 22px;position: absolute;top:10px;left: 70px;}
+.pp1_a1{position:absolute;top:-10px;left: -10px;color: #292f33;font:bold 13px "微软雅黑"}
+.pp1 span{position: absolute;top:3px;left:45px ;color: #66757f;}
+#timeShow{position: absolute;top:-7px;left: 115px;color: #66757f;}
+.pp1 a:hover{text-decoration: underline;}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cd.user.dao.chatdao">
+
+
+<insert id="insertchat" parameterType="chat">
+insert into chat(user,you,name,Text,photo,date,tiem,bid)  values(#{user_id},#{you},#{name},#{Text},#{photo},#{date},#{tiem},#{bid}) 
+</insert>
+
+<select id="myandchat" parameterType="chat" resultMap="mychat" >
+select * from chat where you=#{user_id} and date=#{date}  and bid=#{bid}
+</select>
+<update id="up"  parameterType="chat">
+update chat set bid=#{bid} where id=#{id}
+</update>
+<select id="luser" parameterType="chat" resultMap="use">
+   select user.user_id,user.user_name,user.card,user.photo,user.age from user,chat where you=#{user_id} and bid='A' and date=#{date} and user=user_id
+</select>
+
+
+<select id="test" resultMap="mychat" >
+select * from chat;
+</select>
+
+<delete id="delete"  parameterType="int">
+delete from chat where id=#{id}
+</delete>
+
+
+
+
+
+<resultMap type="user" id="use">
+<id property="user_id"  column="user_id"/>
+<result property="password"  column="password"/>
+<result  property="photo" column="photo"/>
+<result property="user_name" column="user_name"/>
+<result  property="card"  column="card"/>
+<result  property="age"  column="age"/>
+</resultMap>
+
+
+<resultMap type="chat" id="mychat">
+<id column="id"  property="id"/>
+<result  column="user" property="user_id"/>
+<result column="you"  property="you"/>
+<result column="name"  property="name"/>
+<result column="Text" property="Text"/>
+<result column="photo"  property="photo"/>
+<result column="date"  property="date"/>
+<result column="tiem"  property="tiem"/>
+<result column="bid"  property="bid"/>
+</resultMap>
+
+</mapper>

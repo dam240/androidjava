@@ -1,0 +1,50 @@
+*{padding: 0;margin: 0;}
+li{list-style: none;}
+a{text-decoration: none;}
+input{outline:none;}
+body{font-size: 13px;position: relative;}
+.navdiv{width:100%;height: 45px;background: #fff;position: fixed;top:0;left: 0;z-index: 10000;}
+.n_nd{width:1167px;height: 100%;margin: 0 auto;}
+.nd_left{width:148px;height: 100%;position: relative;}
+.nd_left a{display: inline-block;height: 100%;line-height: 45px;position: relative;overflow: hidden;}
+.nda1{width:65px;text-align: right;padding-right:15px;background: url(../img/lgtux.png)no-repeat 4px 3px;}
+.nda2{width:60px;text-align: center;}
+.nd_left a p{width:100%;height: 5px;bottom: -5px; background: #0084b4;position: absolute;}
+.outdiv{width:100%;height: 600px;position: relative;}
+.tu{position: fixed;top:0;left: 0;width:100%;height: 670px;}
+.tu li{position: absolute;top:0;left: 0;width:100%;height: 100%;}
+.tu li img{position: absolute;top:0;left: 0;width:100%;height: 100%;}
+.indiv{width:850px;height: 675px;margin: 0px 0 30px 230px;position: relative;}
+.in_left{width: 465px;height: 450px;position: absolute;top:110px;color: #fff;}
+.in_right{width: 305px;height: 430px;position: absolute;top:110px;right: 5px;}
+.in_bottom{width: 610px;height: 20px;position: absolute;bottom: 0;left: 60px;padding-left: 50px;}
+.in_left p{margin-top:20px ;font-size: 20px;}
+.in_left h1{font-size: 35px;font-weight: bold;}
+.biana{width: 355px;height: 105px;position: absolute;bottom: 0;}
+.biana li{position: absolute;top:0;left: 0;}
+.biana li a.diyigea{margin-bottom: 20px;text-decoration: none;}
+.biana li a{display: block;margin-bottom: 5px;width:100%;height: 28px;color: #fff;text-decoration: underline;}
+.biana li a.diyigea:hover{text-decoration: underline;}
+.in_bottom a{color: #fff;margin-left: 20px;}
+.dlu{width:100%;height: 138px;background: #fff;}
+.dlu,.in_right input,.zhuc{-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;border: 1px solid #E2E2E2;}
+.text,.password{background: #faffbd;}
+.text{width:274px;height: 28px;margin:14px;}
+.password{width:200px;height: 28px;margin: 8px 0 16px 14px;}
+.checkbox{margin:5px 0 0 14px;}
+.button{color:#fff;width:63px;height: 29px;margin-left: 4px;cursor: pointer;background: #1c9ceb;border: blue;transition: all 1s;-moz-transition: all 1s; 
+-webkit-transition: all 1s;-o-transition: all 1s;}
+.button:hover{background: blue;}
+input:focus{box-shadow:0px 0px 5px #bebdbd;-webkit-box-shadow: 0px 0px 5px #bebdbd;}
+.zhuc{width: 100%;height: 275px;background: #fff;bottom: 0;position: absolute;}
+.fenxian{border-top:1px solid #E2E2E2;margin: 10px 0 10px 0;}
+.zhuc h2{padding-left: 14px;}
+.zhuc input{width: 274px;height: 30px;margin: 15px 0 8px 14px;}
+.zhuc .button1{margin-top:20px;width:105px;height: 30px;background: yellowgreen;font:bold 15px "微软雅黑";transition: all 1s;-moz-transition: all 1s; 
+-webkit-transition: all 1s;-o-transition: all 1s;cursor: pointer;}
+.zhuc .button1:hover{background:yellow ;}
+.formtip{display: inline-block;width:180px;height: 15px;position: absolute;top:95px;left:14px;color: red;}
+.emailtip{display: inline-block;width:180px;height: 15px;position: absolute;top:148px;left:14px;color: red;}
+#div3{width:200px;height: 15px;position: absolute;top:205px;left:14px;}
+#div1,#div2{width:200px;height: 15px;position: absolute;top:47px;left: 14px;}
+#div2{position: absolute;top:99px;}

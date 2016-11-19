@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cd.user.dao.tweendao">
+
+
+<insert id="insert"  parameterType="tween">
+insert into tween(use_id,use_name,text,photo,position,point,tiem,tween_id,your,you_name,you_text,your_tiem,your_point,your_position,image)
+values(#{use_id},#{use_name},#{text},#{photo},#{position},#{point},#{tiem},#{tween_id},#{your},#{you_name},#{you_text},#{your_tiem},#{your_point},#{your_position},#{image})      
+</insert>
+
+<select id="mytween" resultMap="maptween" parameterType="tool">
+select * from tween where use_id=#{id} order by tiem desc  limit #{index},#{size} 
+</select>
+
+
+
+
+<select id="tweenf" parameterType="tool" resultMap="maptween">
+select * from tween where use_id in(select user_id from user,care where my=#{id} and user_id=you) or use_id=#{id} order by tiem desc limit #{index},#{size}
+</select>
+<select id="count" parameterType="String" resultType="int">
+select count(*) from tween where use_id in(select user_id from user,care where my=#{id} and user_id=you) or use_id=#{id} 
+</select>
+
+
+<select id="count2" parameterType="String" resultType="int">
+select count(*) from tween where use_id=#{id}
+</select>
+
+<update id="updatete" parameterType="tween" >
+update tween set use_name=#{use_name},image=#{image} where id=#{id} 
+</update>
+
+
+<resultMap type="tween" id="maptween">
+<id  column="id"  property="id"/>
+<result  column="use_id"  property="use_id"/>
+<result  column="use_name" property="use_name"/>
+<result  column="text"  property="text"/>
+<result  column="photo" property="photo"/>
+<result  column="position"  property="position"/>
+<result  column="point" property="point"/>
+<result  column="tiem"  property="tiem"/>
+<result  column="tween_id" property="tween_id"/>
+
+<result  column="your"  property="your"/>
+<result  column="you_name" property="you_name"/>
+<result  column="you_text"  property="you_text"/>
+<result  column="your_tiem" property="your_tiem"/>
+<result  column="your_point"  property="your_point"/>
+<result  column="your_position" property="your_position"/>
+
+</resultMap>
+
+
+
+
+
+</mapper>
