@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cd.use.dao.useMapper">
+
+
+
+<select id="one" resultType="int" parameterType="String" >
+
+select count(*)from use_app where usename=#{usename}
+</select> 
+
+
+
+<select id="end" resultType="int" parameterType="String" >
+
+select count(*) from use_app where email=#{email}
+</select> 
+
+
+
+<select id="load" resultType="use" parameterType="String" >
+
+select * from use_app where  usename=#{usename}
+</select> 
+
+
+
+<insert id="save" parameterType="use" flushCache="true">
+insert into use_app(usename,psw,email) values(#{usename},#{psw},#{email})
+</insert>
+
+
+<select id="qnull" resultMap="main" >
+select * from one where B_id is null
+</select> 
+
+
+
+<select id="list" resultMap="main" parameterType="int" >
+
+select * from one where  B_id=#{pid}
+</select> 
+
+
+
+<resultMap type="book_use" id="main">
+<id property="A_id" column="A_id"/>
+<result property="book_name" column="book_name"/>
+<result property="book_log" column="book_log"/>
+<result property="B_id" column="B_id"/>
+</resultMap>
+
+
+
+
+
+<select id="use_book_size" resultType="int"  parameterType="int" >
+select count(*) from book where A_id=#{id}
+</select> 
+
+
+
+ <select id="use_book" resultType="book" parameterType="int" >
+select * from book where book_id=#{id}
+</select> 
+ 
+
+
+
+<insert id="car_save" parameterType="car" flushCache="true">
+insert into car(user_id,book_id,mout,dan_ji,xi_ji,book_name,tu_B) values(#{user_id},#{book_id},#{mout},#{dan_ji},#{xi_ji},#{book_name},#{tu_B})
+</insert>
+
+
+
+
+<resultMap type="car" id="load_car">
+<id property="id" column="id"/>
+<result property="book_name" column="book_name"/>
+<result property="book_id" column="book_id"/>
+<result property="dan_ji" column="dan_ji"/>
+
+
+<result property="tu_B" column="tu_B"/>
+<result property="xi_ji" column="xi_ji"/>
+<result property="mout" column="mout"/>
+
+<result property="user_id" column="user_id"/>
+
+</resultMap>
+
+
+<select id="load_my" resultMap="load_car" parameterType="String">
+select * from car where commit_id  is null and  user_id=#{usename}
+</select>
+
+<update id="up_car" parameterType="car">
+update car set commit_id=#{commit_id} where id=#{id}
+</update>
+<delete id="delete_car" parameterType="int">
+delete from car where id=#{id}
+</delete>
+
+
+
+<resultMap type="order" id="order_ni">
+<id property="order_id" column="order_id"/>
+<result property="addr" column="addr"/>
+<result property="jin" column="jin"/>
+<result property="date" column="date"/>
+
+
+<result property="fun" column="fun"/>
+<result property="zhi_fu" column="zhi_fu"/>
+
+
+<result property="user_id" column="user_id"/>
+
+</resultMap>
+
+
+
+
+<insert id="order_save" parameterType="order" flushCache="true">
+insert into ordero(order_id,user_id,addr,jin,date) values(#{order_id},#{user_id},#{addr},#{jin},#{date})
+</insert>
+
+
+<select id="look_order" resultType="order" parameterType="String">
+select * from ordero where order_id=#{name}
+</select>
+
+
+
+<select id="show_my" resultMap="order_ni" parameterType="String">
+select * from ordero where user_id=#{use}
+</select>
+
+
+
+<select id="show_p" resultMap="load_car" parameterType="String">
+select * from car where commit_id=#{so}
+</select>
+
+
+
+<select id="admin_fun" resultMap="order_ni" >
+select * from ordero
+</select>
+
+<update id="up_fun" parameterType="order">
+update ordero set fun=#{fun} where order_id=#{order_id}
+</update>
+<update id="up_zhi_fu" parameterType="order">
+update ordero set zhi_fu=#{zhi_fu} where order_id=#{order_id}
+</update>
+
+<select id="fun2" resultMap="order_ni" >
+select * from ordero where fun=1
+</select>
+
+<select id="zhi_fu" resultMap="order_ni" >
+select * from ordero where zhi_fu=1 and fun=1
+</select>
+
+<select id="w_c" resultMap="order_ni" >
+select * from ordero where zhi_fu=1 and fun=2
+</select>
+
+
+
+<select id="m_zhi_fu" resultMap="order_ni" >
+select * from ordero where zhi_fu is null
+</select>
+
+<select id="qi_s" resultMap="order_ni" >
+select * from ordero where zhi_fu = 3
+</select>
+
+
+</mapper>

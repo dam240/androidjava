@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="use" namespace="/" extends="default">
+ <default-action-ref name="load_my" />
+        <action name="go_list" class="dogo">
+            <result name="success">
+          /jsps/left.jsp
+            </result>
+        </action>
+
+       <action name="use_book" class="dogo" method="use_list_book">
+            <result name="success">
+         /jsps/book/list.jsp
+            </result>
+        </action>
+     
+     
+       <action name="book_valuse" class="dogo" method="book_valuse">
+            <result name="success">
+         /jsps/book/list.jsp
+            </result>
+        </action>
+     
+     
+    
+           <action name="use_list" class="dogo" method="use_book">
+            <result name="success">
+           /jsps/book/desc.jsp
+            </result>
+        </action>
+     
+     
+     
+       <action name="book_cont" class="min_book" >
+            <result name="success">
+         /jsps/book/list2.jsp
+            </result>
+        </action>
+     
+     
+    
+       <action name="book_cont2" class="min_book" method="list_op">
+            <result name="success">
+         /jsps/book/list2.jsp
+            </result>
+        </action>
+     
+     
+     
+          <action name="long" class="dogo" method="use_log">
+            <result name="success">
+         /jsps/book/list3.jsp
+            </result>
+        </action>
+     
+     
+     
+          <action name="lolo" class="dogo" method="name">
+            <result name="success">
+         /jsps/book/list3.jsp
+            </result>
+        </action>
+     
+     
+     <action name="car_ini" class="min_book" method="car_ini">
+            <result name="success" type="chain">
+              load_my
+            </result>
+            
+  <result name="error">
+  /index.jsp
+            </result>
+           
+           </action>
+           
+             
+     
+     <action name="load_my" class="min_book" method="load_my">
+            <result name="success">
+              /jsps/cart/list.jsp
+            </result>
+            
+  <result name="error">
+  /index.jsp
+            </result>
+            
+        </action>
+        
+        
+        
+          <action name="ok_bbs" class="min_book" method="load_ku">
+            <result name="success">
+      /jsps/cart/showitem.jsp
+            </result>
+        </action>
+        
+        
+        
+            <action name="delete_car" class="min_book" method="delete_car">
+            <result name="success" type="chain">
+          load_my
+            </result>
+        </action>
+        
+        
+         <action name="delete_carLIST" class="min_book" method="delete_carLIST">
+            <result name="success" type="chain">
+          load_my
+            </result>
+        </action>
+        
+    </package>
+</struts>

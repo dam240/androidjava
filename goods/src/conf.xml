@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+<typeAliases>  
+    <typeAlias alias="use" type="com.cd.use.model.use" />  
+
+ <typeAlias alias="car" type="com.cd.use.model.car" />  
+ <typeAlias alias="order" type="com.cd.use.model.order" />  
+       <typeAlias alias="Admin" type="com.cd.admin.model.admin_use" />  
+
+             <typeAlias alias="book" type="com.cd.admin.model.book" />  
+               <typeAlias alias="book_use" type="com.cd.admin.model.book_use" />  
+         <typeAlias alias="page" type="com.cd.bean.page" />  
+  </typeAliases>  
+
+
+
+    <mappers>
+     <mapper resource="com/cd/use/dao/useMapper.xml" /> 
+       <mapper resource="com/cd/admin/dao/adminMapper.xml" /> 
+   <!--   <mapper class="com.cd.dao.use" /> -->
+        </mappers>
+
+
+
+
+</configuration>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="order" namespace="/" extends="default">
+ 
+        <action name="commit_or" class="order_io">
+            <result name="success" type="chain">
+         look_order
+            </result>
+        </action>
+        
+        
+        
+        
+        
+        <action name="look_order" class="order_io" method="look_order">
+            <result name="success">
+         /jsps/order/ordersucc.jsp
+            </result>
+        </action>
+        
+        
+        
+        
+        
+        <action name="zhi_one" class="order_io" method="zhi_one">
+            <result name="success">
+         /jsps/order/pay.jsp
+            </result>
+        </action>
+        
+          <action name="show_my" class="order_io" method="show_my">
+            <result name="success">
+         /jsps/order/list.jsp
+            </result>
+            
+                <result name="error">
+         /jsps/user/index.jsp
+            </result>
+        </action>
+        
+                <action name="show_list" class="order_io" method="show_list">
+            <result name="success">
+         /jsps/order/desc.jsp
+            </result>
+        </action>
+        
+        
+       <action name="show_zhi" class="order_io" method="show_list">
+            <result name="success">
+         /jsps/order/z_desc.jsp
+            </result>
+        </action>
+        
+         
+       <action name="qs_io" class="order_io" method="show_list">
+            <result name="success">
+         /jsps/order/q_desc.jsp
+            </result>
+        </action>
+        
+        
+                
+        <action name="zhi_two" class="order_io" method="zhi_two">
+            <result name="success">
+         /jsps/order/pay.jsp
+            </result>
+        </action>
+        
+        
+                
+        <action name="admin_order" class="admin_list">
+            <result name="success">
+         /adminjsps/admin/order/list.jsp
+            </result>
+        </action>
+        
+            <action name="order_ht" class="admin_list" method="order_ht">
+            <result name="success">
+        /adminjsps/admin/order/desc.jsp
+            </result>
+        </action>
+        
+        
+            <action name="fun1" class="admin_list" method="fun1">
+            <result name="success">
+        /adminjsps/admin/order/desc2.jsp
+            </result>
+        </action>
+        
+         <action name="hu_id" class="admin_list" method="fun1">
+            <result name="success">
+        /adminjsps/admin/order/desc1.jsp
+            </result>
+        </action>
+        
+                    <action name="fun2" class="admin_list" method="fun2">
+            <result name="success">
+   /adminjsps/admin/order/msg.jsp
+            </result>
+        </action>
+        
+        
+        
+            <action name="yj_fun" class="admin_list" method="yj_fun">
+            <result name="success">
+        /adminjsps/admin/order/list2.jsp
+            </result>
+        </action>
+        
+        
+            <action name="m_zhi" class="admin_list" method="m_zhi">
+            <result name="success">
+        /adminjsps/admin/order/m_list.jsp
+            </result>
+        </action>
+        
+            <action name="yj_zhi" class="admin_list" method="yj_zhi">
+            <result name="success">
+        /adminjsps/admin/order/list3.jsp
+            </result>
+        </action>
+        
+                    <action name="w_c" class="admin_list" method="w_c">
+            <result name="success">
+        /adminjsps/admin/order/list5.jsp
+            </result>
+            </action>
+              <action name="zhi_fu" class="admin_list" method="zhi_fu">
+            <result name="success">
+             /jsps/order/msg.jsp
+            </result>
+            </action>
+            
+            <action name="gei_w" class="admin_list" method="gei_w">
+            <result name="success">
+             /jsps/order/msg1.jsp
+            </result>
+            
+        </action>
+        <action name="tu_h" class="admin_list" method="tu_h">
+            <result name="success">
+             /jsps/order/msg3.jsp
+            </result>
+            
+        </action>
+        
+           <action name="tu_h2" class="admin_list" method="tu_h">
+            <result name="success">
+          /adminjsps/admin/order/msg3.jsp
+            </result>
+            
+        </action>
+        
+          <action name="qi_s" class="admin_list" method="qi_s">
+            <result name="success">
+         /adminjsps/admin/order/list6.jsp
+            </result>
+            
+        </action>
+        
+        
+        </package>
+        
+        </struts>

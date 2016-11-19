@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.cd.admin.dao.adminMapper">
+
+
+
+
+<select id="load" resultType="Admin" parameterType="String" >
+
+select * from admin where  admin_use=#{usename}
+</select> 
+
+
+
+<select id="list" resultMap="main" parameterType="int" >
+
+select * from one where  B_id=#{pid}
+</select> 
+
+<update id="up" parameterType="book_use">
+update one set book_name=#{book_name},book_log=#{book_log} where A_id=#{A_id}
+</update>
+
+<update id="up2" parameterType="book_use">
+update one set book_name=#{book_name},book_log=#{book_log},B_id=#{B_id} where A_id=#{A_id}
+</update>
+
+
+
+<select id="get" resultType="book_use" parameterType="int" >
+
+select * from one where  A_id=#{pid}
+</select> 
+
+<delete id="delete_one" parameterType="int">
+ delete from one where A_id=#{pid}
+</delete>
+ 
+
+<resultMap type="book_use" id="main">
+<id property="A_id" column="A_id"/>
+<result property="book_name" column="book_name"/>
+<result property="book_log" column="book_log"/>
+<result property="B_id" column="B_id"/>
+</resultMap>
+
+
+<select id="qnull" resultMap="main" >
+select * from one where B_id is null
+</select> 
+
+
+
+
+
+
+
+
+<insert id="save_book" parameterType="book" flushCache="true">
+insert into book(book_name,A_id,yi_tiem,tu_A,tu_B,now_ji,d_ji,zhe,zuo,chu,chu_tiem,ban_one,page,k_b,zhi_shu,zi_zhang) values(#{book_name},#{A_id},#{yi_tiem},#{tu_A},#{tu_B},#{now_ji},#{d_ji},#{zhe},#{zuo},#{chu},#{chu_tiem},#{ban_one},#{page},#{k_b},#{zhi_shu},#{zi_zhang})
+</insert>
+
+
+
+<insert id="saveB" parameterType="book_use" flushCache="true">
+insert into one(book_name,book_log,B_id) values(#{book_name},#{book_log},#{B_id})
+</insert>
+
+
+<insert id="saveA" parameterType="book_use" flushCache="true">
+insert into one(book_name,book_log,B_id) values(#{book_name},#{book_log},null)
+</insert>
+
+
+
+
+
+
+
+<resultMap type="book" id="ken">
+<id property="book_id" column="book_id"/>
+<result property="book_name" column="book_name"/>
+<result property="A_id" column="A_id"/>
+<result property="yi_tiem" column="yi_tiem"/>
+<result property="tu_A" column="tu_A"/>
+<result property="tu_B" column="tu_B"/>
+<result property="now_ji" column="now_ji"/>
+
+
+<result property="d_ji" column="d_ji"/>
+<result property="zhe" column="zhe"/>
+<result property="zuo" column="zuo"/>
+<result property="chu" column="chu"/>
+<result property="chu_tiem" column="chu_tiem"/>
+<result property="ban_one" column="ban_one"/>
+
+<result property="page" column="page"/>
+<result property="k_b" column="k_b"/>
+<result property="zhi_shu" column="zhi_shu"/>
+<result property="zi_zhang" column="zi_zhang"/>
+
+</resultMap>
+
+
+
+<select id="all_book" resultMap="ken"  parameterType="int" >
+select * from book where A_id=#{id}
+</select> 
+
+
+<select id="count" resultType="int" parameterType="int" >
+select count(*) from book where book_id=#{id}
+</select> 
+
+
+
+
+
+
+
+<select id="selectUserByPage" resultMap="ken" parameterType="int" >
+        <![CDATA[
+        SELECT * FROM book where A_id =#{id}
+        ]]>
+    </select>
+
+     <select id="dan_book" parameterType="int" resultType="book">
+     select * from book where book_id=#{id}
+     </select>
+       <update id="go_up" parameterType="book">
+        update book set book_name=#{book_name},A_id=#{A_id},yi_tiem=#{yi_tiem},now_ji=#{now_ji},d_ji=#{d_ji},zhe=#{zhe},zuo=#{zuo},chu=#{chu},chu_tiem=#{chu_tiem},ban_one=#{ban_one},page=#{page},k_b=#{k_b},zhi_shu=#{zhi_shu},zi_zhang=#{zi_zhang} where book_id=#{book_id}
+       </update>
+       
+       
+       
+<delete id="delete_book" parameterType="int">
+ delete from book where book_id=#{pid}
+</delete>
+ 
+ 
+     <select id="look_book" parameterType="book" resultMap="ken">
+     select * from book where book_name  like '%${book_name}%'    and  zuo like '%${zuo}%' and chu like '%${chu}%'  
+     </select>
+       
+       
+     <select id="look_size" parameterType="book" resultType="int">
+     select count(*) from book where book_name  like '%${book_name}%'    and  zuo like '%${zuo}%' and chu like '%${chu}%'  
+     </select>
+       
+
+<select id="look_use_ui"  parameterType="book" resultType="int">
+     select count(*)  from book where book_name  like '%${book_name}%' 
+
+</select>
+
+
+<select id="look_conut"  parameterType="book" resultMap="ken">
+     select *  from book where book_name  like '%${book_name}%' 
+
+</select>
+</mapper>

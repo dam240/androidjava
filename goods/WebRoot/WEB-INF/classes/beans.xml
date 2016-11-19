@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/data/jpa 
+		http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+      
+      <context:annotation-config/>
+ 
+
+   
+   <bean id="dataSource"  
+       class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+    <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />  
+      <property name="url" value="jdbc:sqlserver://localhost:1433; DatabaseName=use" />  
+       <property name="username" value="sa" />  
+       <property name="password" value="dameng" />  
+  </bean>  
+  
+
+
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource"></property>  
+        <property name="configLocation" value="classpath:conf.xml" />   
+    </bean>  
+<bean id="usedao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
+    <property name="mapperInterface" value="com.cd.use.dao.useMapper"></property>
+ <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
+ </bean>  
+ 
+ <bean id="admin_dao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
+    <property name="mapperInterface" value="com.cd.admin.dao.adminMapper"></property>
+ <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
+ </bean>  
+ 
+  <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+
+       <constructor-arg index="0" ref="sqlSessionFactory" />
+
+    </bean> 
+ 
+ 
+ 
+ <context:component-scan base-package="com"></context:component-scan>
+ 
+  
+ 
+ <bean id="transactionManager"  
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean>  
+<!--   
+ <tx:annotation-driven transaction-manager="transactionManager" /> -->
+ 
+ 
+ <tx:advice id="txAdvice" transaction-manager="transactionManager">
+  <tx:attributes>
+    <tx:method name="save*" propagation="REQUIRED" rollback-for="Exception"/>
+  </tx:attributes>
+</tx:advice>
+
+  <aop:config>
+        <aop:pointcut expression="execution( public * com.cd.use.service.serivice.*(..))" id="serivice"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="serivice"/>
+    </aop:config>
+
+</beans> 

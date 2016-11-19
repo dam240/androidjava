@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+     <constant name="struts.custom.i18n.resources" value="message" /> 
+    
+<constant value="GBK" name="struts.i18n.encoding"/>
+
+ <include file="use.xml"/>  
+  <include file="order.xml"/>  
+       <package name="default" namespace="/" extends="struts-default">
+
+        
+        
+            
+
+    
+        <action name="upload"
+            class="book">
+            <result name="success">   /adminjsps/admin/book/add.jsp
+</result>
+            <result name="input">/index.jsp</result>
+            <!-- 定义文件上传拦截器 -->
+            <interceptor-ref name="fileUpload">
+                <!-- 设置文件上传大小 -->
+                <param name="maximumSize">409600</param>
+                <!-- 设置文件上传类型 
+                <param name="allowedTypes">
+                    application/vnd.ms-powerpoint
+                </param>
+                -->
+            </interceptor-ref>
+            <!-- 自定义了拦截器后必手动定义默认的拦截器，否则默认的拦截器不会被执行 -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+        
+      
+        
+        
+
+<action name="createImageAction" class="create">  
+            <result name="success" type="stream">  
+                <param name="contentType">image/jpeg</param>  
+               <param name="inputName">inputStream</param>  
+            </result>  
+</action> 
+
+
+<action name="longl" class="longlmo" >  
+            <result name="success" type="stream">  
+                <param name="contentType">image/jpeg</param>  
+               <param name="inputName">inputStream</param>  
+            </result>  
+</action> 
+
+         
+           
+         <action name="whe" class="using">
+          <result name="success">
+          /jsps/msg.jsp
+          </result>
+          <result name="error">
+          /jsps/user/regist.jsp
+          </result>
+         </action>
+         
+         
+         
+         
+         
+         <action name="login" class="login">
+          <result name="success">
+          /adminjsps/admin/main.jsp
+          </result>
+          <result name="error">
+         /adminjsps/login.jsp
+          </result>
+         </action>
+         
+         
+         
+         <action name="add" class="one">
+          <result name="success">
+          /adminjsps/admin/msg.jsp
+          </result>
+          <result name="error">
+         /adminjsps/login.jsp
+          </result>
+         </action>
+         
+         
+         
+         <action name="add2" class="one" method="add">
+          <result name="success">
+   /adminjsps/admin/category/add2.jsp
+          </result>
+         </action>
+         
+         
+         <action name="fen" class="one" method="fen">
+          <result name="success">
+   /adminjsps/admin/book/left.jsp
+          </result>
+         </action>
+         
+         
+         
+          
+         <action name="dan_book" class="dan" method="dan_book">
+          <result name="success">
+   /adminjsps/admin/book/desc.jsp
+          </result>
+         </action>
+         
+            
+         <action name="look_book" class="dan" method="min">
+          <result name="success">
+   /adminjsps/admin/book/listtwo.jsp
+          </result>
+         </action>
+         
+               <action name="look_bookone" class="dan" method="tuo">
+          <result name="success">
+   /adminjsps/admin/book/listtwo.jsp
+          </result>
+         </action>
+         
+   
+             
+              
+         <action name="delete1" class="one" method="delete1">
+          <result name="success" type="chain" >
+              list
+          </result>
+         </action>
+
+
+
+         <action name="up" class="one" method="up">
+          <result name="success">
+   /adminjsps/admin/category/edit.jsp
+          </result>
+         </action>
+
+      
+            
+         <action name="up2" class="one" method="up2">
+          <result name="success">
+   /adminjsps/admin/category/edit2.jsp
+          </result>
+         </action>
+
+
+     
+         <action name="uc2" class="one" method="cu2">
+          <result name="success" type="chain">
+           list2 
+          </result>
+         </action>
+                
+     
+     <action name="book_mai" class="one" method="book_list">
+       </action>
+     
+         <action name="uc" class="one" method="cu">
+          <result name="success" type="chain">
+           list 
+          </result>
+         </action>
+                
+         
+         <action name="delete2" class="one" method="delete2">
+          <result name="success" type="chain" >
+              list2
+          </result>
+         </action>     
+         
+             <action name="book_g" class="book" method="book_up">
+          <result name="success" type="chain" >
+              fen
+          </result>
+         </action>   
+         
+         <action name="list" class="one" method="list">
+          <result name="success">
+   /adminjsps/admin/category/list.jsp
+          </result>
+         </action>
+         
+         
+         <action name="book_list" class="one" method="list">
+          <result name="success">
+   /adminjsps/admin/book/add.jsp
+          </result>
+         </action>
+         
+             <action name="list2" class="one" method="list2">
+          <result name="success">
+   /adminjsps/admin/category/list2.jsp
+          </result>
+         </action>
+         
+         
+         <action name="ti" class="one" method="add2">
+          <result name="success">
+          /adminjsps/admin/msg.jsp
+          </result>
+ <result name="error">
+   /adminjsps/admin/category/add2.jsp
+          </result>
+
+         </action>
+         
+         
+         <action name="logo" class="using" method="ing">
+          <result name="success">
+          /jsps/msg.jsp
+          </result>
+          <result name="error">
+          /jsps/error.jsp
+          </result>
+         </action>
+         
+         
+         
+         <action name="using" class="using" method="logname">
+          
+         </action>
+         
+         
+         <action name="email" class="using" method="email">
+          
+         </action>
+         
+         
+         <action name="testji" class="using" method="jio">
+          
+         </action>
+         
+         
+            <action name="gh" class="using" method="zhu">
+            
+            
+        
+          
+         </action>
+ 
+ 
+ <action name="lo">
+ </action>
+ 
+ 
+      <action name="all_book" class="dan">
+          <result name="success">
+   /adminjsps/admin/book/list.jsp
+          </result>
+         </action>   
+         
+      <action name="bean" class="dan" method="size_list">
+          <result name="success">
+   /adminjsps/admin/book/list.jsp
+          </result>
+         </action>   
+         
+         
+               
+</package>
+
+ 
+
+    <!-- Add packages here -->
+
+</struts>
